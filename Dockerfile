@@ -40,7 +40,7 @@ RUN /bin/bash -l -c "bundle install"
 #RUN /bin/bash -l -c "rails generate blacklight:install --marc --devise"
 RUN /bin/bash -l -c "rake db:migrate"
 
-RUN chmod -R 775 /usr/local/rvm/gems/ruby-*/gems/blacklight-marc-7.0.0.rc1/solr/conf
+#RUN chmod -R 775 /usr/local/rvm/gems/ruby-*/gems/blacklight-marc-7.0.0.rc1/solr/conf
 
 CMD SOLR_URL=http://solr:8983/solr/discovery 
 CMD rm -f /opt/blacklight_discovery/tmp/pids/server.pid && /bin/bash -l -c "rails server -b '0.0.0.0'"
