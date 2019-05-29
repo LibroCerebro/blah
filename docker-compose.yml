@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  solr:
+    image: registry.gitlab.com/librocerebro/docker-solr:latest  
+    ports: 
+      - "8983:8983"
+    build:
+      context: https://gitlab.com/LibroCerebro/docker-solr.git
+      dockerfile: /7.6/alpine/Dockerfile
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - solr
